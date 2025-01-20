@@ -5,6 +5,9 @@ NODE := docker run --user=${CURRENT_UID} -v $(PWD):/project -w /project -it --rm
 setup:
 	${NMP} install
 
+lint:
+	${NMP} run lint
+
 test:
 	${NMP} test
 

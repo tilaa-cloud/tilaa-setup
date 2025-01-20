@@ -1,14 +1,12 @@
 import * as core from '@actions/core'
 import * as exec from '@actions/exec'
-import { toPlatformPath } from '@actions/core'
 import * as tc from '@actions/tool-cache'
 import { promises as fs } from 'fs'
-import { spawn } from 'child_process'
 
-const installer_version: string = '1.0.0'
-const version: string = '0.1.1'
+const installer_version = '1.0.0'
+const version = '0.1.1'
 
-export const runCli = async (command: string) => {
+export const runCli = async (command: string): Promise<number> => {
   core.exportVariable('TILAA_PASSWORD', core.getInput('password'))
 
   const res = await exec.exec('tilaa', [
@@ -24,13 +22,7 @@ export const runCli = async (command: string) => {
   return res
 }
 
-type SpawnResult = {
-  code: number | null
-  stdout: string | null
-  stderr: string | null
-}
-
-export async function install() {
+export async function install(): Promise<void> {
   try {
     // const ms: string = core.getInput('milliseconds')
 
@@ -53,7 +45,7 @@ export async function install() {
       core.info(`Found Tilaa installer ${installer_version} in cache`)
     }
 
-    let tilaa = tc.find('tilaa', version)
+    const tilaa = tc.find('tilaa', version)
     if (!tilaa) {
       await exec.getExecOutput(installer + '/tilaa-installer')
 
@@ -69,7 +61,7 @@ export async function install() {
   }
 }
 
-const setPermissions = async (filePath: string) => {
+const setPermissions = async (filePath: string): Promise<void> => {
   core.debug(`chmod ${filePath}`)
 
   await fs.chmod(filePath, 0o755) // rwx r-x r-x
