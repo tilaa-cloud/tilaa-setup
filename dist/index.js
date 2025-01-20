@@ -28350,7 +28350,7 @@ async function install() {
         else {
             core.info(`Found Tilaa installer ${installer_version} in cache`);
         }
-        let tilaa = tc.find('tilaa', version);
+        const tilaa = tc.find('tilaa', version);
         if (!tilaa) {
             await exec.getExecOutput(installer + '/tilaa-installer');
             await tc.cacheFile('tilaa', 'tilaa', 'tilaa', version);
