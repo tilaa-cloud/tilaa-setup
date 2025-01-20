@@ -100,3 +100,10 @@ __tests__/runner/*
 # IDE files
 .idea
 *.code-workspace
+
+tilaa-install.sh
+tilaa
+auth.json
+
+runner-temp
+tool-cache

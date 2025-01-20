@@ -1,20 +1,23 @@
 {
   "name": "typescript-action",
   "description": "GitHub Actions TypeScript template",
-  "version": "0.0.0",
-  "author": "",
+  "version": "0.1.0",
+  "author": "tilaa",
   "private": true,
-  "homepage": "https://github.com/actions/typescript-action",
+  "homepage": "https://github.com/tilaa-cloud/tilaa-setup",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/actions/typescript-action.git"
+    "url": "git+https://github.com/tilaa-cloud/tilaa-setup.git"
   },
   "bugs": {
-    "url": "https://github.com/actions/typescript-action/issues"
+    "url": "https://github.com/tilaa-cloud/tilaa-setup/issues"
   },
   "keywords": [
     "actions",
     "node",
+    "tilaa",
+    "serverless",
+    "container",
     "setup"
   ],
   "exports": {
@@ -67,7 +70,9 @@
     ]
   },
   "dependencies": {
-    "@actions/core": "^1.11.1"
+    "@actions/core": "^1.11.1",
+    "@actions/exec": "^1.1.1",
+    "@actions/tool-cache": "^2.0.1"
   },
   "devDependencies": {
     "@github/local-action": "^2.2.1",
