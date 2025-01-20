@@ -8,11 +8,11 @@
 
 ## Usage
 
-This action can be used to sign in on the tilaa-cloud api. This will make the Tilaa cli tool 
-available in github actions. The tool allows you to interact with our platform, like you can do
+This action can be used to sign in on the Tilaa-cloud API. This will make the Tilaa commandline tool 
+available in GitHub Actions. The tool allows you to interact with our platform, like you can do
 local.
 
-We recommend to use secrets to pass you tilaa username and password to make sure you do not expose them to
+We recommend to use secrets to pass you Tilaa username and password to make sure you do not expose them to
 the world.
 
 ```yaml
