@@ -4,7 +4,7 @@ import * as tc from '@actions/tool-cache'
 import { promises as fs } from 'fs'
 
 const installer_version = '1.0.0'
-const version = '0.1.1'
+const version = '1.0.38'
 
 export const runCli = async (command: string): Promise<number> => {
   core.exportVariable('TILAA_PASSWORD', core.getInput('password'))
@@ -32,7 +32,7 @@ export async function install(): Promise<void> {
         `Didn't found installer in cache, downloading ${installer_version}`
       )
       const tmpInstallerPath = await tc.downloadTool(
-        'https://tilaa.dev/install.sh'
+        'https://nexaa.io/install.sh'
       )
       await setPermissions(tmpInstallerPath)
       installer = await tc.cacheFile(
