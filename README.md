@@ -9,7 +9,7 @@
 ## Usage
 
 This action can be used to sign in on the Tilaa-cloud API. This will make the
-Tilaa commandline tool available in GitHub Actions. The tool allows you to
+Tilaa command-line tool available in GitHub Actions. The tool allows you to
 interact with our platform, like you can do local.
 
 We recommend to use secrets to pass you Tilaa username and password to make sure
