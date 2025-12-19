@@ -9,7 +9,7 @@ const version = '1.0.38'
 export const runCli = async (command: string): Promise<number> => {
   core.exportVariable('TILAA_PASSWORD', core.getInput('password'))
 
-  const res = await exec.exec('tilaa', [
+  const res = await exec.exec('nexaa', [
     command,
     '-u',
     core.getInput('username')
@@ -26,7 +26,7 @@ export async function install(): Promise<void> {
   try {
     // const ms: string = core.getInput('milliseconds')
 
-    let installer = tc.find('tilaa-install.sh', installer_version)
+    let installer = tc.find('nexaa-install.sh', installer_version)
     if (!installer) {
       core.info(
         `Didn't found installer in cache, downloading ${installer_version}`
@@ -37,24 +37,24 @@ export async function install(): Promise<void> {
       await setPermissions(tmpInstallerPath)
       installer = await tc.cacheFile(
         tmpInstallerPath,
-        'tilaa-installer',
-        'tilaa-install.sh',
+        'nexaa-installer',
+        'nexaa-install.sh',
         installer_version
       )
     } else {
-      core.info(`Found Tilaa installer ${installer_version} in cache`)
+      core.info(`Found Nexaa installer ${installer_version} in cache`)
     }
 
-    const tilaa = tc.find('tilaa', version)
-    if (!tilaa) {
-      await exec.getExecOutput(installer + '/tilaa-installer')
+    const nexaa = tc.find('nexaa', version)
+    if (!nexaa) {
+      await exec.getExecOutput(installer + '/nexaa-installer')
 
-      await tc.cacheFile('tilaa', 'tilaa', 'tilaa', version)
+      await tc.cacheFile('nexaa', 'nexaa', 'nexaa', version)
     } else {
-      core.info(`Found Tilaa cli ${version} in cache`)
+      core.info(`Found Nexaa cli ${version} in cache`)
     }
 
-    core.addPath(tc.find('tilaa', version))
+    core.addPath(tc.find('nexaa', version))
   } catch (error) {
     // Fail the workflow run if an error occurs
     if (error instanceof Error) core.setFailed(error.message)
