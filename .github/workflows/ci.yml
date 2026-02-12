@@ -57,5 +57,5 @@ jobs:
         id: test-action
         uses: ./
         with:
-          username: tilaa
-          password: secret
+          username: ${{ secrets.NEXAA_USER }}
+          password: ${{ secrets.NEXAA_PASSWORD }}
