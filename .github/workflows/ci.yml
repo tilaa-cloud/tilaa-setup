@@ -59,7 +59,3 @@ jobs:
         with:
           username: ${{ secrets.NEXAA_USER }}
           password: ${{ secrets.NEXAA_PASSWORD }}
-
-      - name: Print Output
-        id: output
-        run: echo "${{ steps.test-action.outputs.time }}"
