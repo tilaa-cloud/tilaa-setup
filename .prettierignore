@@ -1,5 +1,6 @@
 .DS_Store
 .licenses/
+.github
 dist/
 node_modules/
 coverage/
