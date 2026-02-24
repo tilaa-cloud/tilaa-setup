@@ -8,7 +8,8 @@ const config = {
   input: 'src/index.ts',
   output: {
     esModule: true,
-    file: 'dist/index.js',
+    dir: 'dist',
+    preserveModules: true,
     format: 'es',
     sourcemap: true
   },
