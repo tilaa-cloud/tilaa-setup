@@ -28282,7 +28282,7 @@ async function install() {
         let installer = tc.find('nexaa-install.sh', installer_version);
         if (!installer) {
             core.info(`Didn't found installer in cache, downloading ${installer_version}`);
-            const tmpInstallerPath = await tc.downloadTool('https://nexaa.io/install.sh');
+            const tmpInstallerPath = await tc.downloadTool('https://docs.nexaa.io/install.sh');
             await setPermissions(tmpInstallerPath);
             installer = await tc.cacheFile(tmpInstallerPath, 'nexaa-installer', 'nexaa-install.sh', installer_version);
         }

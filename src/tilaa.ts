@@ -32,7 +32,7 @@ export async function install(): Promise<void> {
         `Didn't found installer in cache, downloading ${installer_version}`
       )
       const tmpInstallerPath = await tc.downloadTool(
-        'https://nexaa.io/install.sh'
+        'https://docs.nexaa.io/install.sh'
       )
       await setPermissions(tmpInstallerPath)
       installer = await tc.cacheFile(
